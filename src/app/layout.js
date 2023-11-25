@@ -9,10 +9,10 @@ const inter = Inter({ subsets: ["latin"] });
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      {/* <Header /> */}
-      <body >
-      <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
-    </body>
+      <body>
+        <Header />
+        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+      </body>
     </html>
   );
 }
