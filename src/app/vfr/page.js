@@ -20,10 +20,10 @@ const FittingRoom = () => {
   };
 
   const handleImageUpload = (event) => {
+    console.log("Input event:", event.target);  // Log information about the input element
     const uploadedImage = event.target.files[0];
     const reader = new FileReader();
-    console.log("userImage",event);
-    alert("Ok")
+  
     reader.onload = () => {
       // This will be executed when the file is successfully loaded
       console.log("userImage", reader.result);
@@ -32,7 +32,7 @@ const FittingRoom = () => {
       setUserImage(reader.result);
       localStorage.setItem('userImage', reader.result);
     };
-
+  
     reader.readAsDataURL(uploadedImage);
   };
 
@@ -72,7 +72,7 @@ const FittingRoom = () => {
     <div>
       {/* Display user's image */}
         {userImage && <img src={userImage} alt="Preview" style={{ maxWidth: '100%' }} />}
-
+      <button onClick={handleImageUpload}>Upload</button>
       {/* Image upload input */}
       <div>
         <h2>Upload your image:</h2>
