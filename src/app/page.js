@@ -1,7 +1,11 @@
+"use client"
 import Image from "next/image";
+import { Button } from "antd";
 import { Input } from "antd";
-import Search from "@/components/Search`";
+import { useState } from "react";
+import Products from "@/components/Products`";
 export default function Home() {
+  const [clothes,setClothes] = useState([1,2,3,4])
   return (
     <main className="flex min-h-screen bg-slate-50 flex-col items-center justify-between p-24">
       <div className=" w-full flex gap-3 items-center">
@@ -25,6 +29,9 @@ export default function Home() {
             Suggest
           </Button>
         </div>
+      </div>
+      <div className="grid grid-cols-5 gap-4">
+        {clothes.map((curr)=>(<Products/>))}
       </div>
     </main>
   );
