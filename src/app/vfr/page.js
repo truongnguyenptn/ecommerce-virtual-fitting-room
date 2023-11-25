@@ -1,7 +1,7 @@
 'use client'
 import React, { useState, useEffect } from 'react';
 
-const FittingRoom = () => {
+export default FittingRoom = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [userImage, setUserImage] = useState(null);
 
@@ -94,4 +94,3 @@ const FittingRoom = () => {
   );
 };
 
-export default FittingRoom;
