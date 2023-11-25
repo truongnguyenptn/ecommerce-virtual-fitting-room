@@ -11,8 +11,10 @@ const inter = Inter({ subsets: ['latin'] })
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <Header />
+      {/* <Header /> */}
+      <body >
       <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+    </body>
     </html>
   )
 }
