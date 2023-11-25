@@ -4,22 +4,21 @@ import React, { useState, useEffect } from 'react';
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 import { data } from '@/data`';
 export default function FittingRoom() {
-  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [selectedProduct, setSelectedProduct] = useState({
+    "STT": "8",
+    "Name": "Essential T-Shirt Shirt - Burgundy Cotton Jersey",
+    "url": "https://www.batchmens.com/cdn/shop/products/Essential-LS-Shirt-Burgundy-Jersey_83848ab7-ff35-4ffe-a4d3-f3c9f529f5db_720x.jpg?v=1673644516",
+    "Category": "casual"
+});
   const [userImage, setUserImage] = useState(null);
   const [responseImage, setResponseImage] = useState(null);
   // Load user image from localStorage
   useEffect(() => {
-    console.log("useeffect")
     const storedUserImage = localStorage.getItem('userImage');
     if (storedUserImage) {
       setUserImage(storedUserImage);
     }
   }, []);
-
-  const handleProductSelection = (product) => {
-    console.log('Product selected:', product);
-    setSelectedProduct(product);
-  };
 
   const handleImageUpload = (event) => {
     console.log("Input event:", event.target.value);  // Log information about the input element
@@ -84,7 +83,9 @@ export default function FittingRoom() {
   return (
     <div>
       {/* Display user's image */}
-        {userImage && <img src={userImage} alt="Preview" style={{ maxWidth: '400px' }} />}
+      <h2>Product image:</h2>
+      {userImage && <img src={userImage} alt="Preview" style={{ maxWidth: '400px' }} />}
+      
       {/* Image upload input */}
       <div>
         <h2>Upload your image:</h2>
@@ -92,31 +93,12 @@ export default function FittingRoom() {
       </div>
       
       <div>
-      {userImage && <img src={userImage} alt="Preview" style={{ maxWidth: '400px' }} />}
+      {selectedProduct && <img src={selectedProduct.url} alt="Preview" style={{ maxWidth: '400px' }} />}
       </div>
-      <Button onClick={handleVirtualTryOn}>Try on</Button>
-      <div>
-        {/* <h2>Select a product:</h2> */}
-        {/* Render your product options here and call handleProductSelection when a product is selected */}
-        {/* Example: */}
-        {/* <button onClick={() => handleProductSelection('product1')}>Product 1</button> */}
-        {/* <button onClick={() => handleProductSelection('product2')}>Product 2</button> */}
-      </div>
+      <Button onClick={handleVirtualTryOn} className="MainButton">Try on</Button>
 
       {responseImage && <img src={responseImage } alt="Preview" style={{ maxWidth: '400px' }} />}
-      {
-        <div className='flex'>
-      {       data?.map((item) => {
-          return (
-            <div>
-              <img src={item.url} alt="Preview" style={{ maxWidth: '400px' }} />
-              <Button onClick={() => handleProductSelection(item)}>Try on</Button>
-            </div>
-          )
-        })}
-        </div>
-     
-      }
+    
     </div>
   );
 };
