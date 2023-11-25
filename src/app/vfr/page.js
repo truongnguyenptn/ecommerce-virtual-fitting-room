@@ -7,6 +7,7 @@ const FittingRoom = () => {
 
   // Load user image from localStorage
   useEffect(() => {
+    console.log("useeffect")
     const storedUserImage = localStorage.getItem('userImage');
     if (storedUserImage) {
       setUserImage(storedUserImage);
@@ -14,17 +15,21 @@ const FittingRoom = () => {
   }, []);
 
   const handleProductSelection = (product) => {
+    console.log('Product selected:', product);
     setSelectedProduct(product);
   };
 
   const handleImageUpload = (event) => {
     const uploadedImage = event.target.files[0];
     const reader = new FileReader();
-    console.log("userImage", reader.result);
-
+    console.log("userImage",event);
+    alert("Ok")
     reader.onload = () => {
-      setUserImage(reader.result);
+      // This will be executed when the file is successfully loaded
       console.log("userImage", reader.result);
+      alert("Ok");
+  
+      setUserImage(reader.result);
       localStorage.setItem('userImage', reader.result);
     };
 
