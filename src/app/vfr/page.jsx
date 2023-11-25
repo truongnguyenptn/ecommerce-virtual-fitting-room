@@ -20,9 +20,11 @@ const FittingRoom = () => {
   const handleImageUpload = (event) => {
     const uploadedImage = event.target.files[0];
     const reader = new FileReader();
+    console.log("userImage", reader.result);
 
     reader.onload = () => {
       setUserImage(reader.result);
+      console.log("userImage", reader.result);
       localStorage.setItem('userImage', reader.result);
     };
 
@@ -64,7 +66,7 @@ const FittingRoom = () => {
   return (
     <div>
       {/* Display user's image */}
-      {userImage && <img src={userImage} alt="user" style={{ maxWidth: '100%' }} />}
+        {userImage && <img src={userImage} alt="Preview" style={{ maxWidth: '100%' }} />}
 
       {/* Image upload input */}
       <div>
