@@ -4,22 +4,28 @@ import Search from "@/components/Search`";
 export default function Home() {
   return (
     <main className="flex min-h-screen bg-slate-50 flex-col items-center justify-between p-24">
-      {/* <div>
-        <div className="mt-4 grid grid-cols-12 items-ends gap-4 px-5">
-          <p className="text-lg font-medium">Link</p>
-          <form className="col-span-12">
-            <div className="flex rounded-sm bg-white p-1">
-              <input
-                type="text"
-                className="flex-grow border-none bg-transparent px-3 py-2 text-black outline-none"
-                placeholder="Free Ship Đơn Từ 0Đ"
-              />
-            </div>
-            <button>abc</button>
-          </form>
+      <div className=" w-full flex gap-3 items-center">
+        <div className="flex flex-col w-1/6 text-black gap-3">
+          <p>Link</p>
+          <p>Describe your situation</p>
         </div>
-      </div> */}
-      <Search/>
+        <div className="flex flex-col w-4/6 text-black gap-3">
+          <div className="flex gap-2">
+            <Input className="flex-1" placeholder="Insert link heer" />;
+          </div>
+          <div className="flex gap-2">
+            <Input className="flex-1" placeholder="" />;
+          </div>
+        </div>
+        <div className="flex flex-col w-1/6 text-black gap-3">
+          <Button type="primary" className="bg-red-200">
+            Suggest
+          </Button>
+          <Button type="primary" className="bg-red-200">
+            Suggest
+          </Button>
+        </div>
+      </div>
     </main>
   );
 }
